@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Profesionales de Emergencia</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* RESET Y ESTILOS GENERALES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .btn-primary {
+            background-color: #25D366;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1da851;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-secondary {
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+        }
+        
+        .btn-emergency {
+            background-color: #e74c3c;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+        
+        .btn-whatsapp {
+            background-color: #38a169;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #2d8a5e;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+        }
+        
+        /* HEADER Y NAVEGACIÓN */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            position: relative;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            z-index: 1001;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: #25D366;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #2c3e50;
+            padding: 5px;
+            z-index: 1001;
+            position: relative;
+            right: 0;
+        }
+        
+        /* SECCIÓN HERO */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1621905252507-b35492cc74b4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 160px 0 100px;
+            margin-top: 70px;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* SECCIÓN DE SERVICIOS */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+        }
+        
+        .section-title p {
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: #25D366;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        /* SECCIÓN SOBRE NOSOTROS */
+        .about {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* SECCIÓN DE RESEÑAS MEJORADA Y CORREGIDA - NUEVA POSICIÓN */
+        .reviews {
+            padding: 80px 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        /* Contenedor principal del carrusel - SIMPLIFICADO */
+        .reviews-carousel-container {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+            overflow: hidden;
+            padding: 0 80px;
+        }
+        
+        /* Contenedor de las reseñas */
+        .reviews-carousel {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            gap: 20px;
+            padding: 40px 0;
+        }
+        
+        /* Tarjeta de reseña */
+        .review-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            min-width: 350px;
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            transition: all 0.5s ease;
+            position: relative;
+            z-index: 1;
+            height: 320px;
+            overflow: hidden;
+            /* Eliminamos el desenfoque por defecto */
+            opacity: 1;
+            filter: none;
+            transform: scale(1);
+        }
+        
+        /* SOLUCIÓN SIMPLIFICADA: Solo la tarjeta activa es visible */
+        .review-card:not(.active) {
+            opacity: 0.6;
+            filter: blur(2px);
+            transform: scale(0.9);
+        }
+        
+        /* Tarjeta central activa */
+        .review-card.active {
+            opacity: 1;
+            filter: none;
+            transform: scale(1);
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        /* Encabezado de la reseña */
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-shrink: 0;
+        }
+        
+        .review-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #f1f8e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.5rem;
+            color: #25D366;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .review-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .review-info h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+        }
+        
+        .review-info p {
+            color: #7f8c8d;
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+        
+        /* Estrellas de calificación */
+        .review-stars {
+            color: #FFD700;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+        
+        /* Contenedor de texto con scroll */
+        .review-text-container {
+            position: relative;
+            flex-grow: 1;
+            overflow-y: auto;
+            margin-bottom: 10px;
+            padding-right: 5px;
+            max-height: 150px;
+        }
+        
+        /* Estilos para la barra de scroll */
+        .review-text-container::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .review-text-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+        
+        .review-text-container::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 2px;
+        }
+        
+        .review-text-container::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+        
+        /* Indicador de scroll */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: linear-gradient(to bottom, transparent, white);
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            opacity: 0.7;
+            pointer-events: none;
+        }
+        
+        .scroll-indicator i {
+            color: #25D366;
+            font-size: 0.8rem;
+            margin-bottom: 2px;
+        }
+        
+        /* Texto de la reseña */
+        .review-text {
+            font-style: italic;
+            line-height: 1.6;
+            color: #555;
+            font-size: 0.95rem;
+        }
+        
+        /* Fecha de la reseña */
+        .review-date {
+            font-size: 0.8rem;
+            color: #95a5a6;
+            text-align: right;
+            flex-shrink: 0;
+            margin-top: 5px;
+        }
+        
+        /* Botones de navegación del carrusel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #2c3e50;
+            cursor: pointer;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+        
+        .carousel-btn:hover {
+            background-color: #25D366;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .carousel-btn.prev {
+            left: 10px;
+        }
+        
+        .carousel-btn.next {
+            right: 10px;
+        }
+        
+        /* Indicadores del carrusel (puntos) */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+        
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: #25D366;
+            transform: scale(1.3);
+        }
+        
+        /* Puntaje general */
+        .overall-rating {
+            text-align: center;
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .rating-score {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+        
+        .rating-stars {
+            color: #FFD700;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .rating-text {
+            color: #7f8c8d;
+            font-size: 1.1rem;
+        }
+        
+        /* SECCIÓN DE UBICACIÓN */
+        .location {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .location-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+        
+        .location-info {
+            padding: 20px;
+        }
+        
+        .location-info h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .location-details {
+            margin-bottom: 30px;
+        }
+        
+        .location-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .location-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f1f8e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1rem;
+            color: #25D366;
+        }
+        
+        /* SECCIÓN DE CONTACTO */
+        .contact {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #f1f8e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+            color: #25D366;
+        }
+        
+        .contact-form {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* FOOTER */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 3px;
+            background-color: #25D366;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: #25D366;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #bdc3c7;
+        }
+        
+        /* BOTÓN FLOTANTE DE WHATSAPP */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #1da851;
+            transform: scale(1.1);
+        }
+        
+        /* BOTÓN DE EMERGENCIA */
+        .emergency-button {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            z-index: 999;
+            padding: 12px 24px;
+            font-size: 1rem;
+        }
+        
+        /* MODAL DE EMERGENCIA */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+        
+        .modal-close:hover {
+            color: #e74c3c;
+        }
+        
+        .confirmation-modal {
+            display: none;
+        }
+        
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 1200px) {
+            .review-card {
+                min-width: 320px;
+                flex: 0 0 320px;
+            }
+            
+            .reviews-carousel-container {
+                padding: 0 70px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .about-container,
+            .location-container {
+                flex-direction: column;
+                grid-template-columns: 1fr;
+            }
+            
+            .location-info {
+                order: 2;
+            }
+            
+            .map-container {
+                order: 1;
+            }
+            
+            /* SE ELIMINÓ LA REGLA QUE HACÍA DESAPARECER EL BOTÓN DE EMERGENCIA EN MÓVIL */
+            
+            .review-card {
+                min-width: 300px;
+                flex: 0 0 300px;
+                height: 300px;
+            }
+            
+            .reviews-carousel-container {
+                padding: 0 60px;
+            }
+            
+            .carousel-btn.prev {
+                left: 5px;
+            }
+            
+            .carousel-btn.next {
+                right: 5px;
+            }
+            
+            .rating-score {
+                font-size: 3rem;
+            }
+            
+            .rating-stars {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 20px;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+                margin-left: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+                position: static;
+                margin-left: auto;
+                order: 2;
+            }
+            
+            .logo {
+                order: 1;
+                flex: 1;
+                max-width: calc(100% - 60px);
+            }
+            
+            .header-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            /* BOTÓN DE EMERGENCIA - MODIFICADO PARA MÓVIL */
+            .emergency-button {
+                position: fixed;
+                top: auto;
+                bottom: 90px; /* Para que no se superponga con el botón de WhatsApp */
+                right: 20px;
+                left: auto;
+                padding: 10px 16px;
+                font-size: 0.9rem;
+                z-index: 999;
+                margin: 0;
+                display: block;
+                width: auto;
+                animation: pulse 2s infinite;
+                box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+            }
+            
+            /* Asegúrate de que no se superponga en pantallas muy pequeñas */
+            @media (max-height: 600px) {
+                .emergency-button {
+                    bottom: 80px;
+                }
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            /* Ajustes del carrusel para móvil */
+            .review-card {
+                min-width: 280px;
+                flex: 0 0 280px;
+                height: 280px;
+                padding: 20px;
+            }
+            
+            .review-text-container {
+                max-height: 130px;
+            }
+            
+            .review-avatar {
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .review-info h4 {
+                font-size: 1rem;
+            }
+            
+            .carousel-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+            
+            .reviews-carousel-container {
+                padding: 0 50px;
+            }
+            
+            .rating-score {
+                font-size: 2.8rem;
+            }
+            
+            .rating-stars {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .map-container {
+                height: 300px;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.7rem;
+            }
+            
+            /* BOTÓN DE EMERGENCIA - AJUSTES PARA PANTALLAS PEQUEÑAS */
+            .emergency-button {
+                bottom: 80px;
+                right: 15px;
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 15px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            /* Asegurar suficiente espacio entre botones */
+            @media (max-height: 600px) {
+                .emergency-button {
+                    bottom: 70px;
+                }
+                .whatsapp-float {
+                    bottom: 15px;
+                }
+            }
+            
+            /* Ajustes del carrusel para pantallas pequeñas */
+            .review-card {
+                min-width: 260px;
+                flex: 0 0 260px;
+                height: 260px;
+                padding: 18px;
+            }
+            
+            .review-text-container {
+                max-height: 110px;
+            }
+            
+            .review-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .review-avatar {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            
+            .review-text {
+                font-size: 0.9rem;
+            }
+            
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
+            }
+            
+            .carousel-btn.prev {
+                left: 0;
+            }
+            
+            .carousel-btn.next {
+                right: 0;
+            }
+            
+            .reviews-carousel-container {
+                padding: 0 40px;
+            }
+            
+            .rating-score {
+                font-size: 2.5rem;
+            }
+            
+            .rating-stars {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">🔧</span>
+                <span>Nombre empresa/profesional</span>
+            </div>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#reseñas">Reseñas</a></li>
+                    <li><a href="#ubicacion">Ubicación</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- BOTÓN DE EMERGENCIA -->
+    <a href="#emergencyModal" class="btn btn-emergency emergency-button" id="emergencyBtn">
+        <i class="fas fa-phone-alt"></i> EMERGENCIA
+    </a>
+
+    <!-- SECCIÓN HERO (INICIO) -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Tu servicio</h1>
+            <p>Descripción de tu servicio.</p>
+            <a href="#contacto" class="btn btn-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE SERVICIOS -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+                <p>Ofrecemos soluciones rápidas y efectivas para situaciones de emergencia en diferentes áreas.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Fontanería de Emergencia</h3>
+                    <p>Atendemos fugas, obstrucciones y problemas con tuberías de inmediato, las 24 horas del día.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Electricidad Urgente</h3>
+                    <p>Solucionamos cortocircuitos, fallas eléctricas y problemas de instalación de manera inmediata.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Gasistas de Emergencia</h3>
+                    <p>Revisiones urgentes de instalaciones de gas, detección de fugas y reparaciones inmediatas.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-key"></i>
+                    </div>
+                    <h3>Cerrajería Express</h3>
+                    <p>Apertura de puertas, cambio de cerraduras y sistemas de seguridad disponibles 24/7.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SOBRE NOSOTROS -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre Nosotros</h2>
+                <p>Conoce más sobre nuestro compromiso con la excelencia.</p>
+            </div>
+            
+            <div class="about-container">
+                <div class="about-content">
+                    <h3>Profesionales Confiables.</h3>
+                    <p>Descripción de tu experiencia.</p>
+                    <p>Descripción de tu servicio.</p>
+                    <p>Por qué elegirte.</p>
+                    <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
+                </div>
+                
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profesional trabajando">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE RESEÑAS - NUEVA POSICIÓN -->
+    <section class="reviews" id="reseñas">
+        <div class="container">
+            <div class="section-title">
+                <h2>Opiniones de Nuestros Clientes</h2>
+                <p>Descubre lo que dicen quienes ya confiaron en nuestros servicios de emergencia.</p>
+            </div>
+            
+            <!-- Puntaje general -->
+            <div class="overall-rating">
+                <div class="rating-score">4.9/5</div>
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="rating-text">Basado en 127 reseñas</div>
+            </div>
+            
+            <div class="reviews-carousel-container">
+                <!-- Botón anterior -->
+                <button class="carousel-btn prev" id="prevBtn" aria-label="Reseña anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <!-- Contenedor del carrusel -->
+                <div class="reviews-carousel" id="reviewsCarousel">
+                    <!-- Reseña 1 -->
+                    <div class="review-card" data-index="0">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>María González</h4>
+                                <p>Cliente desde 2022</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text-container">
+                            <p class="review-text">
+                                "Increíble servicio. Tuve una fuga de agua a medianoche y en menos de 30 minutos tenían a un fontanero en mi casa. Solucionaron el problema rápidamente y con total profesionalismo. El técnico fue muy amable y me explicó todo lo que hizo. Definitivamente los recomendaré a todos mis conocidos."
+                            </p>
+                            <div class="scroll-indicator">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">15 de marzo, 2023</div>
+                    </div>
+                    
+                    <!-- Reseña 2 -->
+                    <div class="review-card active" data-index="1">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Carlos Rodríguez</h4>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text-container">
+                            <p class="review-text">
+                                "El domingo por la tarde se me rompió la cerradura y no podía entrar a mi casa. Llamé a ServiExpress y en 20 minutos estaba aquí un cerrajero. Me solucionó el problema al instante y con un precio justo. Excelente atención y muy profesionales. Volveré a llamarlos si necesito ayuda."
+                            </p>
+                            <div class="scroll-indicator">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">2 de abril, 2023</div>
+                    </div>
+                    
+                    <!-- Reseña 3 -->
+                    <div class="review-card" data-index="2">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Ana Martínez</h4>
+                                <p>Cliente desde 2023</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <div class="review-text-container">
+                            <p class="review-text">
+                                "Tuve un problema eléctrico en mi negocio que me dejó sin luz. A pesar de ser festivo, atendieron mi llamada y enviaron a un electricista calificado. Solucionó el problema en una hora y me explicó todo claramente. Muy profesionales y eficientes. El precio fue razonable para ser un día festivo."
+                            </p>
+                            <div class="scroll-indicator">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">10 de mayo, 2023</div>
+                    </div>
+                    
+                    <!-- Reseña 4 -->
+                    <div class="review-card" data-index="3">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Javier López</h4>
+                                <p>Cliente desde 2020</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text-container">
+                            <p class="review-text">
+                                "Llevo años confiando en ellos para todas las emergencias de mi hogar. Lo que más valoro es la transparencia en los precios y la rapidez de respuesta. Nunca me han fallado, ya sea para fontanería, electricidad o gas. Los técnicos siempre son puntuales y explican claramente el trabajo realizado."
+                            </p>
+                            <div class="scroll-indicator">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">22 de junio, 2023</div>
+                    </div>
+                    
+                    <!-- Reseña 5 -->
+                    <div class="review-card" data-index="4">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Laura Sánchez</h4>
+                                <p>Cliente desde 2022</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text-container">
+                            <p class="review-text">
+                                "Detecté olor a gas en mi cocina y entré en pánico. Llamé a estos profesionales y me calmó el operador mientras enviaban a un técnico. Llegó en 15 minutos, revisó toda la instalación y solucionó una pequeña fuga. Me sentí segura en todo momento y el técnico fue muy respetuoso. Recomiendo totalmente su servicio."
+                            </p>
+                            <div class="scroll-indicator">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">5 de julio, 2023</div>
+                    </div>
+                    
+                    <!-- Reseña 6 -->
+                    <div class="review-card" data-index="5">
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="review-info">
+                                <h4>Roberto Fernández</h4>
+                                <p>Cliente desde 2021</p>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-text-container">
+                            <p class="review-text">
+                                "Excelente atención en una emergencia de fontanería. El técnico fue muy profesional, explicó el problema y la solución claramente. Los recomiendo sin dudar. El precio fue justo y el trabajo quedó perfecto. Ya los he recomendado a varios amigos y todos han quedado igual de satisfechos."
+                            </p>
+                            <div class="scroll-indicator">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="review-date">18 de agosto, 2023</div>
+                    </div>
+                </div>
+                
+                <!-- Botón siguiente -->
+                <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente reseña">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- Indicadores del carrusel -->
+            <div class="carousel-indicators" id="carouselIndicators">
+                <!-- Los indicadores se generarán dinámicamente con JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE UBICACIÓN -->
+    <section class="location" id="ubicacion">
+        <div class="container">
+            <div class="section-title">
+                <h2>Tu Ubicación</h2>
+                <p>Descripción de la ubicación.</p>
+            </div>
+            
+            <div class="location-container">
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.177858804427!2d-74.00597092388903!3d40.71274363891483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316fc04223%3A0xb5c3e0a2b25bc283!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1689876307198!5m2!1sen!2s" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <div class="location-info">
+                    <h3>Encontranos Fácilmente</h3>
+                    
+                    <div class="location-details">
+                        <p>Descripción de tu ubicación.</p>
+                        <p>Descripción de tu ubicación.</p>
+                    </div>
+                    
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Dirección</h4>
+                            <p>Calle Principal 123, Ciudad, País</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>24 horas, 7 días a la semana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="location-item">
+                        <div class="location-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div>
+                            <h4>Estacionamiento</h4>
+                            <p>Disponible en el lugar para clientes</p>
+                        </div>
+                    </div>
+                    
+                    <a href="https://maps.google.com/?q=Calle+Principal+123,+Ciudad,+País" class="btn btn-primary" target="_blank">
+                        <i class="fas fa-directions"></i> Cómo llegar
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>Estamos disponibles para atender tus emergencias y consultas. Contáctanos por cualquier medio.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Teléfono de Emergencia</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Correo Electrónico</h4>
+                            <p>emergencias@serviexpress.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Ubicación</h4>
+                            <p>Calle Principal 123, Ciudad, País</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Horario de Atención</h4>
+                            <p>24 horas, 7 días a la semana</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Solicitar Servicio</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Teléfono *</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Tipo de servicio *</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Seleccione un servicio</option>
+                                <option value="plomeria">Fontanería de Emergencia</option>
+                                <option value="electricidad">Electricidad Urgente</option>
+                                <option value="gas">Gasistas de Emergencia</option>
+                                <option value="cerrajeria">Cerrajería Express</option>
+                                <option value="otro">Otro servicio</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Descripción del problema *</label>
+                            <textarea id="message" class="form-control" required placeholder="Describa brevemente el problema..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Enviar Solicitud</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    -->
+    
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>ServiExpress</h3>
+                    <p>Servicios profesionales de emergencia disponibles las 24 horas, los 7 días de la semana.</p>
+                    <div style="margin-top: 20px;">
+                        <a href="#" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#reseñas">Reseñas</a></li>
+                        <li><a href="#ubicacion">Ubicación</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Servicios</h3>
+                    <ul class="footer-links">
+                        <li><a href="#servicios">Fontanería de Emergencia</a></li>
+                        <li><a href="#servicios">Electricidad Urgente</a></li>
+                        <li><a href="#servicios">Gasistas de Emergencia</a></li>
+                        <li><a href="#servicios">Cerrajería Express</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> emergencias@serviexpress.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Ciudad</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
+    <a href="https://wa.me/15551234567?text=Hola,%20necesito%20ayuda%20con%20una%20emergencia" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MODAL DE EMERGENCIA -->
+    <div class="modal-overlay" id="emergencyModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <h2>¿Necesitas ayuda de inmediato?</h2>
+            <p>Para emergencias, contacta directamente con nuestro equipo especializado.</p>
+            
+            <div style="margin: 30px 0;">
+                <a href="tel:+15551234567" class="btn btn-emergency" style="margin-bottom: 15px; display: block;">
+                    <i class="fas fa-phone-alt"></i> LLAMAR AHORA: +1 (555) 123-4567
+                </a>
+                
+                <a href="https://wa.me/15551234567?text=EMERGENCIA:%20Necesito%20ayuda%20inmediata" class="btn btn-primary" style="display: block;" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp de EMERGENCIA
+                </a>
+            </div>
+            
+            <p><small>Nuestro equipo de emergencias atiende las 24 horas, los 7 días de la semana.</small></p>
+        </div>
+    </div>
+
+    <!-- MODAL DE CONFIRMACIÓN -->
+    <div class="modal-overlay confirmation-modal" id="confirmationModal">
+        <div class="modal-content">
+            <span class="modal-close" id="confirmationClose">&times;</span>
+            <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 4rem; color: #25D366; margin-bottom: 20px;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>¡Solicitud Enviada!</h2>
+                <p>Hemos recibido tu solicitud de servicio. Nos contactaremos contigo en los próximos minutos para coordinar la atención.</p>
+                <p>Para emergencias inmediatas, puedes contactarnos directamente:</p>
+                <a href="tel:+15551234567" class="btn btn-emergency" style="margin-top: 20px;">
+                    <i class="fas fa-phone-alt"></i> LLAMAR AHORA
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // FUNCIONALIDAD DEL MENÚ HAMBURGUESA
+    document.getElementById('menuToggle').addEventListener('click', function() {
+        document.getElementById('navLinks').classList.toggle('active');
+        
+        const icon = this.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+    
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.getElementById('navLinks').classList.remove('active');
+            const icon = document.querySelector('.menu-toggle i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+    });
+    
+    // FUNCIONALIDAD DEL CARRUSEL DE RESEÑAS - VERSIÓN COMPLETA CORREGIDA
+    (function initCarousel() {
+        const carousel = document.getElementById('reviewsCarousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('carouselIndicators');
+        const reviewCards = document.querySelectorAll('.review-card');
+        const totalCards = reviewCards.length;
+        
+        // Estado del carrusel
+        let currentIndex = 1; // Empieza en la segunda tarjeta
+        let autoSlideInterval;
+        let isTransitioning = false;
+        
+        // Función para obtener dimensiones exactas
+        function getDimensions() {
+            if (reviewCards.length === 0) return null;
+            
+            const firstCard = reviewCards[0];
+            const container = document.querySelector('.reviews-carousel-container');
+            
+            // Verificar si la tarjeta existe y está visible
+            if (!firstCard || firstCard.offsetWidth === 0) {
+                setTimeout(getDimensions, 100);
+                return null;
+            }
+            
+            return {
+                cardWidth: firstCard.offsetWidth,
+                cardMargin: 0,
+                containerWidth: container ? container.offsetWidth : window.innerWidth,
+                gap: 20
+            };
+        }
+        
+        // Función para calcular el desplazamiento correcto
+        function calculateOffset() {
+            const dims = getDimensions();
+            if (!dims) return 0;
+            
+            const slideWidth = dims.cardWidth + dims.gap;
+            
+            // Si es la primera tarjeta, alinear al inicio
+            if (currentIndex === 0) {
+                return 0;
+            }
+            
+            // Si es la última tarjeta, alinear al final
+            if (currentIndex === totalCards - 1) {
+                const totalWidth = (slideWidth * totalCards) - dims.gap;
+                return Math.max(0, totalWidth - dims.containerWidth);
+            }
+            
+            // Para tarjetas intermedias: centrar
+            return (currentIndex * slideWidth) - (dims.containerWidth / 2) + (dims.cardWidth / 2);
+        }
+        
+        // Función para aplicar la transformación con límites
+        function applyCarouselTransform() {
+            if (isTransitioning || !reviewCards[currentIndex]) return;
+            
+            // Calcular el offset con límites
+            let targetOffset = calculateOffset();
+            const dims = getDimensions();
+            
+            if (!dims) return;
+            
+            // Limitar el offset para evitar espacios vacíos
+            const slideWidth = dims.cardWidth + dims.gap;
+            const totalCarouselWidth = (slideWidth * totalCards) - dims.gap;
+            const maxOffset = Math.max(0, totalCarouselWidth - dims.containerWidth);
+            
+            targetOffset = Math.max(0, Math.min(targetOffset, maxOffset));
+            
+            // Aplicar transformación
+            carousel.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            carousel.style.transform = `translateX(-${targetOffset}px)`;
+            
+            // Actualizar clases de tarjetas
+            reviewCards.forEach((card, index) => {
+                card.classList.remove('active');
+                if (index === currentIndex) {
+                    card.classList.add('active');
+                }
+            });
+            
+            // Actualizar indicadores
+            updateIndicators();
+            
+            isTransitioning = true;
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 500);
+        }
+        
+        // Función para actualizar indicadores
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.indicator');
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+        
+        // Función para crear indicadores
+        function createIndicators() {
+            indicatorsContainer.innerHTML = '';
+            
+            for (let i = 0; i < totalCards; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('indicator');
+                if (i === currentIndex) indicator.classList.add('active');
+                indicator.setAttribute('data-index', i);
+                indicator.addEventListener('click', () => goToSlide(i));
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+        
+        // Función para ir a un slide específico
+        function goToSlide(index) {
+            if (isTransitioning) return;
+            
+            // Manejar bucle continuo
+            if (index < 0) {
+                index = totalCards - 1;
+            } else if (index >= totalCards) {
+                index = 0;
+            }
+            
+            currentIndex = index;
+            applyCarouselTransform();
+            resetAutoSlide();
+        }
+        
+        // Función para inicializar el carrusel
+        function initCarouselFunction() {
+            // Crear indicadores
+            createIndicators();
+            
+            // Configurar botones
+            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
+            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
+            
+            // Inicializar posición
+            setTimeout(() => {
+                applyCarouselTransform();
+            }, 100);
+            
+            // Auto-desplazamiento
+            startAutoSlide();
+            
+            // Pausar auto-desplazamiento al interactuar
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            
+            // Para móviles
+            carousel.addEventListener('touchstart', stopAutoSlide);
+            carousel.addEventListener('touchend', () => {
+                setTimeout(startAutoSlide, 8000);
+            });
+            
+            // Ajustar al redimensionar
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    applyCarouselTransform();
+                }, 250);
+            });
+            
+            // Forzar un recálculo después de que todo esté cargado
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    applyCarouselTransform();
+                }, 300);
+            });
+        }
+        
+        // Funciones para auto-desplazamiento
+        function startAutoSlide() {
+            stopAutoSlide();
+            autoSlideInterval = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, 8000);
+        }
+        
+        function stopAutoSlide() {
+            if (autoSlideInterval) {
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = null;
+            }
+        }
+        
+        function resetAutoSlide() {
+            stopAutoSlide();
+            startAutoSlide();
+        }
+        
+        // Inicializar cuando el DOM esté listo
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initCarouselFunction);
+        } else {
+            initCarouselFunction();
+        }
+    })();
+    
+    // FUNCIONALIDAD DEL MODAL DE EMERGENCIA
+    document.getElementById('emergencyBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('emergencyModal').style.display = 'flex';
+    });
+    
+    document.getElementById('modalClose').addEventListener('click', function() {
+        document.getElementById('emergencyModal').style.display = 'none';
+    });
+    
+    document.getElementById('emergencyModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            document.getElementById('emergencyModal').style.display = 'none';
+        }
+    });
+    
+    // FUNCIONALIDAD DEL FORMULARIO DE CONTACTO
+    if (document.getElementById('contactForm')) {
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !phone || !service || !message) {
+                alert('Por favor, complete todos los campos obligatorios.');
+                return;
+            }
+            
+            document.getElementById('confirmationModal').style.display = 'flex';
+            document.getElementById('contactForm').reset();
+        });
+    }
+    
+    document.getElementById('confirmationClose').addEventListener('click', function() {
+        document.getElementById('confirmationModal').style.display = 'none';
+    });
+    
+    document.getElementById('confirmationModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            document.getElementById('confirmationModal').style.display = 'none';
+        }
+    });
+    
+    // SCROLL SUAVE PARA ENLACES INTERNOS
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            if (this.id === 'emergencyBtn') return;
+            
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // EFECTO DE APARICIÓN AL HACER SCROLL
+    function checkScroll() {
+        const elements = document.querySelectorAll('.service-card, .about-content, .contact-form, .map-container, .location-info, .review-card');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    }
+    
+    document.querySelectorAll('.service-card, .about-content, .contact-form, .map-container, .location-info, .review-card').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    window.addEventListener('scroll', checkScroll);
+    window.addEventListener('load', checkScroll);
+    
+    // Actualizar indicadores de scroll dinámicamente
+    function updateScrollIndicators() {
+        document.querySelectorAll('.review-text-container').forEach(container => {
+            const text = container.querySelector('.review-text');
+            const indicator = container.querySelector('.scroll-indicator');
+            
+            if (!text || !indicator) return;
+            
+            if (text.scrollHeight > container.clientHeight) {
+                indicator.style.display = 'flex';
+            } else {
+                indicator.style.display = 'none';
+            }
+            
+            container.addEventListener('scroll', () => {
+                const isAtBottom = container.scrollHeight - container.scrollTop <= container.clientHeight + 1;
+                indicator.style.opacity = isAtBottom ? '0' : '0.7';
+            });
+        });
+    }
+    
+    updateScrollIndicators();
+    window.addEventListener('resize', updateScrollIndicators);
+    </script>
+</body>
+</html>
