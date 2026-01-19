@@ -649,7 +649,8 @@
             justify-content: center;
             margin-right: 15px;
             font-size: 1.2rem;
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #e17200;
+            flex-shrink: 0;
         }
         
         .contact-form {
@@ -1074,6 +1075,25 @@
                 width: 55px;
                 height: 55px;
                 font-size: 1.5rem;
+            }
+            .contact-item {
+                align-items: flex-start; /* Alinear al inicio para mejor distribución */
+            }
+    
+            .contact-icon {
+                width: 40px; /* Reducir ligeramente el tamaño en móviles */
+                height: 40px;
+                font-size: 1rem;
+                flex-shrink: 0; /* Asegurar que no se encoja */
+                margin-top: 2px; /* Pequeño ajuste de alineación */
+            }
+    
+            /* Ajustes similares para location-icon */
+            .location-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 0.9rem;
+                flex-shrink: 0; /* También para location-icon si tiene el mismo problema */
             }
             
             /* Asegurar suficiente espacio entre botones */
