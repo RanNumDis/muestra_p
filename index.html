@@ -280,6 +280,7 @@
             margin: 0 auto;
             overflow: hidden;
             padding: 0 80px;
+            touch-action: pan-y pinch-zoom; /* Permitir gestos táctiles */
         }
         
         /* Contenedor de las reseñas */
@@ -310,6 +311,7 @@
             opacity: 1;
             filter: none;
             transform: scale(1);
+            -webkit-tap-highlight-color: transparent; /* Eliminar resaltado en táctil */
         }
         
         /* SOLUCIÓN SIMPLIFICADA: Solo la tarjeta activa es visible */
@@ -384,6 +386,8 @@
             margin-bottom: 10px;
             padding-right: 5px;
             max-height: 150px;
+            -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+            touch-action: pan-y; /* Permitir scroll vertical en táctil */
         }
         
         /* Estilos para la barra de scroll */
@@ -460,11 +464,19 @@
             color: #2c3e50;
             cursor: pointer;
             box-shadow: 0 3px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             z-index: 10;
+            -webkit-tap-highlight-color: transparent;
+            outline: none;
         }
         
         .carousel-btn:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        /* CAMBIO IMPORTANTE: Solo verde cuando se presiona */
+        .carousel-btn:active {
             background-color: #25D366;
             color: white;
             transform: translateY(-50%) scale(1.1);
@@ -735,7 +747,7 @@
             top: 100px;
             right: 30px;
             z-index: 999;
-            padding: 12px 24px;
+            padding: 14px 28px;
             font-size: 1rem;
         }
         
@@ -995,17 +1007,17 @@
             
             /* BOTÓN DE EMERGENCIA - AJUSTES PARA PANTALLAS PEQUEÑAS */
             .emergency-button {
-                bottom: 80px;
+                bottom: 100px;
                 right: 15px;
-                padding: 8px 14px;
+                padding: 12px 21px;
                 font-size: 0.8rem;
             }
             
             .whatsapp-float {
-                bottom: 20px;
+                bottom: 30px;
                 right: 15px;
-                width: 50px;
-                height: 50px;
+                width: 55px;
+                height: 55px;
                 font-size: 1.5rem;
             }
             
@@ -1119,8 +1131,8 @@
     <section class="services" id="servicios">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestros Servicios</h2>
-                <p>Ofrecemos soluciones rápidas y efectivas para situaciones de emergencia en diferentes áreas.</p>
+                <h2>Tus servicios</h2>
+                <p>Ofrecemos soluciones rápidas y efectivas en diferentes áreas.</p>
             </div>
             
             <div class="services-grid">
@@ -1183,12 +1195,12 @@
         </div>
     </section>
 
-    <!-- SECCIÓN DE RESEÑAS - NUEVA POSICIÓN -->
+    <!-- SECCIÓN DE RESEÑAS -->
     <section class="reviews" id="reseñas">
         <div class="container">
             <div class="section-title">
-                <h2>Opiniones de Nuestros Clientes</h2>
-                <p>Descubre lo que dicen quienes ya confiaron en nuestros servicios de emergencia.</p>
+                <h2>Opiniones de nuestros clientes</h2>
+                <p>Descubre lo que dicen quienes ya confiaron en nuestros servicios.</p>
             </div>
             
             <!-- Puntaje general -->
@@ -1204,7 +1216,7 @@
                 <div class="rating-text">Basado en 127 reseñas</div>
             </div>
             
-            <div class="reviews-carousel-container">
+            <div class="reviews-carousel-container" id="reviewsCarouselContainer">
                 <!-- Botón anterior -->
                 <button class="carousel-btn prev" id="prevBtn" aria-label="Reseña anterior">
                     <i class="fas fa-chevron-left"></i>
@@ -1404,7 +1416,7 @@
     <section class="location" id="ubicacion">
         <div class="container">
             <div class="section-title">
-                <h2>Tu Ubicación</h2>
+                <h2>Ubicación y contacto</h2>
                 <p>Descripción de la ubicación.</p>
             </div>
             
@@ -1419,7 +1431,7 @@
                 </div>
                 
                 <div class="location-info">
-                    <h3>Encontranos Fácilmente</h3>
+                    <h3>Encontranos fácilmente</h3>
                     
                     <div class="location-details">
                         <p>Descripción de tu ubicación.</p>
@@ -1573,7 +1585,7 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>ServiExpress</h3>
+                    <h3>TU NOMBRE</h3>
                     <p>Servicios profesionales de emergencia disponibles las 24 horas, los 7 días de la semana.</p>
                     <div style="margin-top: 20px;">
                         <a href="#" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">
@@ -1689,19 +1701,28 @@
         });
     });
     
-    // FUNCIONALIDAD DEL CARRUSEL DE RESEÑAS - VERSIÓN COMPLETA CORREGIDA
+    // FUNCIONALIDAD DEL CARRUSEL DE RESEÑAS - VERSIÓN CORREGIDA
     (function initCarousel() {
         const carousel = document.getElementById('reviewsCarousel');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const indicatorsContainer = document.getElementById('carouselIndicators');
         const reviewCards = document.querySelectorAll('.review-card');
+        const carouselContainer = document.getElementById('reviewsCarouselContainer');
         const totalCards = reviewCards.length;
         
         // Estado del carrusel
         let currentIndex = 1; // Empieza en la segunda tarjeta
         let autoSlideInterval;
         let isTransitioning = false;
+        
+        // Variables para funcionalidad táctil
+        let touchStartX = 0;
+        let touchEndX = 0;
+        let touchStartY = 0;
+        let touchEndY = 0;
+        let isScrolling = false;
+        const swipeThreshold = 50; // Mínimo desplazamiento para considerar un swipe
         
         // Función para obtener dimensiones exactas
         function getDimensions() {
@@ -1826,50 +1847,6 @@
             resetAutoSlide();
         }
         
-        // Función para inicializar el carrusel
-        function initCarouselFunction() {
-            // Crear indicadores
-            createIndicators();
-            
-            // Configurar botones
-            prevBtn.addEventListener('click', () => goToSlide(currentIndex - 1));
-            nextBtn.addEventListener('click', () => goToSlide(currentIndex + 1));
-            
-            // Inicializar posición
-            setTimeout(() => {
-                applyCarouselTransform();
-            }, 100);
-            
-            // Auto-desplazamiento
-            startAutoSlide();
-            
-            // Pausar auto-desplazamiento al interactuar
-            carousel.addEventListener('mouseenter', stopAutoSlide);
-            carousel.addEventListener('mouseleave', startAutoSlide);
-            
-            // Para móviles
-            carousel.addEventListener('touchstart', stopAutoSlide);
-            carousel.addEventListener('touchend', () => {
-                setTimeout(startAutoSlide, 8000);
-            });
-            
-            // Ajustar al redimensionar
-            let resizeTimeout;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(() => {
-                    applyCarouselTransform();
-                }, 250);
-            });
-            
-            // Forzar un recálculo después de que todo esté cargado
-            window.addEventListener('load', () => {
-                setTimeout(() => {
-                    applyCarouselTransform();
-                }, 300);
-            });
-        }
-        
         // Funciones para auto-desplazamiento
         function startAutoSlide() {
             stopAutoSlide();
@@ -1888,6 +1865,161 @@
         function resetAutoSlide() {
             stopAutoSlide();
             startAutoSlide();
+        }
+        
+        // FUNCIONALIDAD TÁCTIL PARA DESLIZAR EL CARRUSEL
+        function handleTouchStart(e) {
+            // Si el toque comienza en un botón, no procesar el swipe
+            if (e.target.closest('.carousel-btn')) {
+                return;
+            }
+            
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            isScrolling = false;
+            stopAutoSlide();
+        }
+        
+        function handleTouchMove(e) {
+            if (!touchStartX) return;
+            
+            touchEndX = e.touches[0].clientX;
+            touchEndY = e.touches[0].clientY;
+            
+            // Determinar si el usuario está intentando hacer scroll vertical
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            
+            // Si el movimiento es más vertical que horizontal, es un scroll
+            if (Math.abs(deltaY) > Math.abs(deltaX)) {
+                isScrolling = true;
+                return;
+            }
+            
+            // Si es horizontal, prevenir el scroll vertical de la página
+            e.preventDefault();
+            
+            // Aplicar transformación temporal mientras se desliza
+            const dims = getDimensions();
+            if (!dims) return;
+            
+            const currentOffset = calculateOffset();
+            const slideWidth = dims.cardWidth + dims.gap;
+            const dragOffset = deltaX / 2; // Reducir la sensibilidad del arrastre
+            
+            carousel.style.transition = 'none';
+            carousel.style.transform = `translateX(-${currentOffset - dragOffset}px)`;
+        }
+        
+        function handleTouchEnd(e) {
+            if (!touchStartX || isScrolling) {
+                touchStartX = 0;
+                touchStartY = 0;
+                setTimeout(startAutoSlide, 3000);
+                return;
+            }
+            
+            touchEndX = e.changedTouches[0].clientX;
+            touchEndY = e.changedTouches[0].clientY;
+            
+            const deltaX = touchEndX - touchStartX;
+            const deltaY = touchEndY - touchStartY;
+            
+            // Solo procesar si el movimiento fue principalmente horizontal
+            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+                if (deltaX > 0) {
+                    // Deslizamiento a la derecha -> anterior
+                    goToSlide(currentIndex - 1);
+                } else {
+                    // Deslizamiento a la izquierda -> siguiente
+                    goToSlide(currentIndex + 1);
+                }
+            } else {
+                // Si no fue un swipe significativo, volver a la posición actual
+                applyCarouselTransform();
+            }
+            
+            // Resetear valores
+            touchStartX = 0;
+            touchStartY = 0;
+            isScrolling = false;
+            
+            // Reanudar auto-desplazamiento después de un tiempo
+            setTimeout(startAutoSlide, 3000);
+        }
+        
+        // Función para inicializar el carrusel
+        function initCarouselFunction() {
+            // Crear indicadores
+            createIndicators();
+            
+            // Configurar botones - CORREGIDO: Agregar event listeners separados para click
+            prevBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                goToSlide(currentIndex - 1);
+            });
+            
+            nextBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                goToSlide(currentIndex + 1);
+            });
+            
+            // Configurar eventos táctiles para los botones
+            prevBtn.addEventListener('touchstart', function(e) {
+                e.stopPropagation(); // Evitar que el contenedor procese este toque
+            });
+            
+            nextBtn.addEventListener('touchstart', function(e) {
+                e.stopPropagation(); // Evitar que el contenedor procese este toque
+            });
+            
+            // Configurar eventos táctiles para el contenedor
+            carouselContainer.addEventListener('touchstart', handleTouchStart, { passive: true });
+            carouselContainer.addEventListener('touchmove', handleTouchMove, { passive: false });
+            carouselContainer.addEventListener('touchend', handleTouchEnd, { passive: true });
+            
+            // Permitir scroll táctil dentro de los contenedores de texto
+            document.querySelectorAll('.review-text-container').forEach(container => {
+                container.addEventListener('touchstart', function(e) {
+                    // Detener la propagación para que no active el deslizamiento del carrusel
+                    e.stopPropagation();
+                }, { passive: true });
+                
+                container.addEventListener('touchmove', function(e) {
+                    // Permitir el scroll vertical dentro del contenedor
+                    e.stopPropagation();
+                }, { passive: true });
+            });
+            
+            // Inicializar posición
+            setTimeout(() => {
+                applyCarouselTransform();
+            }, 100);
+            
+            // Auto-desplazamiento
+            startAutoSlide();
+            
+            // Pausar auto-desplazamiento al interactuar
+            carousel.addEventListener('mouseenter', stopAutoSlide);
+            carousel.addEventListener('mouseleave', startAutoSlide);
+            
+            // Ajustar al redimensionar
+            let resizeTimeout;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(() => {
+                    applyCarouselTransform();
+                }, 250);
+            });
+            
+            // Forzar un recálculo después de que todo esté cargado
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    applyCarouselTransform();
+                }, 300);
+            });
         }
         
         // Inicializar cuando el DOM esté listo
