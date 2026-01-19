@@ -100,7 +100,7 @@
             100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
         }
         
-        /* HEADER Y NAVEGACIÓN */
+        /* HEADER Y NAVEGACIÓN MODIFICADO PARA DOS IMÁGENES PNG */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -108,6 +108,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
+            height: 80px; /* Altura fija para el header */
         }
         
         .header-container {
@@ -116,20 +117,34 @@
             align-items: center;
             padding: 15px 20px;
             position: relative;
+            height: 100%; /* Ocupa toda la altura del header */
         }
         
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #2c3e50;
+            gap: 15px; /* Espacio entre las dos imágenes */
             z-index: 1001;
+            height: 100%; /* Ocupa toda la altura del header-container */
+            max-width: 400px; /* Ancho máximo para que no se desborde */
         }
         
-        .logo-icon {
-            margin-right: 10px;
-            font-size: 2rem;
+        /* Imagen del logo/icono - PRIMERA IMAGEN PNG */
+        .logo-image {
+            height: 100%; /* Ocupa el 100% de la altura del contenedor logo */
+            width: auto;
+            max-height: 100%; /* No superar la altura del header */
+            object-fit: contain; /* Mantiene la proporción sin deformar */
+            min-height: 40px; /* Tamaño mínimo */
+        }
+        
+        /* Imagen del nombre de la empresa - SEGUNDA IMAGEN PNG */
+        .logo-name-image {
+            height: 80%; /* Ocupa el 80% de la altura del contenedor logo */
+            width: auto;
+            max-height: 100%;
+            object-fit: contain;
+            min-height: 30px; /* Tamaño mínimo */
         }
         
         .nav-links {
@@ -171,7 +186,7 @@
             color: white;
             text-align: center;
             padding: 160px 0 100px;
-            margin-top: 70px;
+            margin-top: 80px; /* Ajustado para la altura del header */
         }
         
         .hero h1 {
@@ -850,7 +865,25 @@
         
         @media (max-width: 768px) {
             .header-container {
-                padding: 15px 20px;
+                padding: 10px 15px; /* Menor padding en móvil */
+            }
+            
+            /* Reducir altura del header en móvil */
+            header {
+                height: 70px;
+            }
+            
+            .logo {
+                gap: 10px;
+                max-width: 300px; /* Ancho máximo reducido en móvil */
+            }
+            
+            .logo-image {
+                height: 85%; /* Un poco más pequeña en móvil */
+            }
+            
+            .logo-name-image {
+                height: 65%; /* Un poco más pequeña en móvil */
             }
             
             .nav-links {
@@ -895,12 +928,13 @@
                 width: 100%;
             }
             
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
             .hero {
                 padding: 140px 0 80px;
+                margin-top: 70px; /* Ajustado para la nueva altura del header en móvil */
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
             }
             
             .map-container {
@@ -981,6 +1015,19 @@
         }
         
         @media (max-width: 480px) {
+            /* Reducir aún más la altura del header en pantallas pequeñas */
+            header {
+                height: 60px;
+            }
+            
+            .header-container {
+                padding: 8px 12px;
+            }
+            
+            .hero {
+                margin-top: 60px; /* Ajustado para la nueva altura del header */
+            }
+            
             .hero h1 {
                 font-size: 1.8rem;
             }
@@ -998,11 +1045,18 @@
             }
             
             .logo {
-                font-size: 1.5rem;
+                gap: 8px;
+                max-width: 250px;
             }
             
-            .logo-icon {
-                font-size: 1.7rem;
+            .logo-image {
+                height: 80%;
+                min-height: 35px;
+            }
+            
+            .logo-name-image {
+                height: 60%;
+                min-height: 25px;
             }
             
             /* BOTÓN DE EMERGENCIA - AJUSTES PARA PANTALLAS PEQUEÑAS */
@@ -1030,6 +1084,13 @@
                     bottom: 15px;
                 }
             }
+            
+            /* Opcional: ocultar el nombre en pantallas muy pequeñas si no cabe */
+            /*
+            .logo-name-image {
+                display: none;
+            }
+            */
             
             /* Ajustes del carrusel para pantallas pequeñas */
             .review-card {
@@ -1086,12 +1147,15 @@
     </style>
 </head>
 <body>
-    <!-- HEADER -->
+    <!-- HEADER MODIFICADO CON DOS IMÁGENES PNG -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <span class="logo-icon">🔧</span>
-                <span>TU NOMBRE</span>
+                <!-- Reemplaza "logo.png" con la ruta de tu primera imagen PNG (logo/icono) -->
+                <img src="isotipo_redo.png" alt="Logo de la empresa" class="logo-image">
+                
+                <!-- Reemplaza "nombre-empresa.png" con la ruta de tu segunda imagen PNG (nombre) -->
+                <img src="logotipo_redo.png" alt="Nombre de la empresa" class="logo-name-image">
             </div>
             
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
@@ -1105,7 +1169,6 @@
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#reseñas">Reseñas</a></li>
                     <li><a href="#ubicacion">Ubicación y contacto</a></li>
-                    <!--<li><a href="#contacto">Contacto</a></li>-->
                 </ul>
             </nav>
         </div>
@@ -1602,8 +1665,6 @@
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#reseñas">Reseñas</a></li>
                         <li><a href="#ubicacion">Ubicación y contacto</a></li>
-                        <!-- <li><a href="#contacto">Contacto</a></li>
-                        -->
                     </ul>
                 </div>
                 
@@ -2089,7 +2150,7 @@
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70,
+                    top: targetElement.offsetTop - 80, /* Ajustado para la nueva altura del header */
                     behavior: 'smooth'
                 });
             }
