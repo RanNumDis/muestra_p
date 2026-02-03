@@ -3,50 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cerrajería Redó - Rosario</title>
-    
-    <!-- Descripción optimizada para SEO -->
-    <meta name="description" content="Cerrajería Redó en Rosario. Servicio de cerrajería desde 1944. Especialistas en cajas fuertes, cerraduras inteligentes, copia de llaves y emergencias. Atención a domicilio en toda Rosario.">
-    
-    <!-- Palabras clave principales -->
-    <meta name="keywords" content="cerrajería rosario, cerrajero rosario, cerrajería caja fuerte, cerrajero caja fuerte, copia de llaves, cerraduras inteligentes, apertura de puertas, emergencias cerrajería, cerrajería redó, cerrajería redo">
-    
-    <link rel="canonical" href="https://www.cerrajeriaredo.com.ar">
+    <title>Servicios Profesionales</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔧</text></svg>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    
-        <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [{
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Inicio",
-            "item": "https://www.cerrajeriaredo.com.ar"
-        }, {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Servicios de Cerrajería",
-            "item": "https://www.cerrajeriaredo.com.ar#servicios"
-        }, {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Cajas de Seguridad Rosario",
-            "item": "https://www.cerrajeriaredo.com.ar#servicios"
-        }, {
-            "@type": "ListItem",
-            "position": 4,
-            "name": "Contacto Cerrajero Rosario",
-            "item": "https://www.cerrajeriaredo.com.ar#ubicacion"
-        }]
-    }
-    </script>
-    
     <style>
         /* RESET Y ESTILOS GENERALES */
         * {
@@ -98,23 +60,23 @@
         }
         
         .btn-primary {
-            background-color: #e17200; /* Cambiado a la gama naranja */
+            background-color: #25D366;
             color: white;
         }
         
         .btn-primary:hover {
-            background-color: #c26100; /* Hover más oscuro */
+            background-color: #1da851;
             transform: translateY(-2px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
         .btn-secondary {
-            background-color: #e17200; 
+            background-color: #2c3e50;
             color: white;
         }
         
         .btn-secondary:hover {
-            background-color: #c26100
+            background-color: #1a252f;
             transform: translateY(-2px);
         }
         
@@ -126,7 +88,6 @@
         
         .btn-whatsapp {
             background-color: #38a169;
-            color: white;
         }
         
         .btn-whatsapp:hover {
@@ -139,7 +100,7 @@
             100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
         }
         
-        /* HEADER Y NAVEGACIÓN MODIFICADO PARA DOS IMÁGENES PNG */
+        /* HEADER Y NAVEGACIÓN */
         header {
             background-color: white;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -147,7 +108,6 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            height: 80px; /* Altura fija para el header */
         }
         
         .header-container {
@@ -156,34 +116,20 @@
             align-items: center;
             padding: 15px 20px;
             position: relative;
-            height: 100%; /* Ocupa toda la altura del header */
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 15px; /* Espacio entre las dos imágenes */
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
             z-index: 1001;
-            height: 100%; /* Ocupa toda la altura del header-container */
-            max-width: 400px; /* Ancho máximo para que no se desborde */
         }
         
-        /* Imagen del logo/icono - PRIMERA IMAGEN PNG */
-        .logo-image {
-            height: 100%; /* Ocupa el 100% de la altura del contenedor logo */
-            width: auto;
-            max-height: 100%; /* No superar la altura del header */
-            object-fit: contain; /* Mantiene la proporción sin deformar */
-            min-height: 40px; /* Tamaño mínimo */
-        }
-        
-        /* Imagen del nombre de la empresa - SEGUNDA IMAGEN PNG */
-        .logo-name-image {
-            height: 80%; /* Ocupa el 80% de la altura del contenedor logo */
-            width: auto;
-            max-height: 100%;
-            object-fit: contain;
-            min-height: 30px; /* Tamaño mínimo */
+        .logo-icon {
+            margin-right: 10px;
+            font-size: 2rem;
         }
         
         .nav-links {
@@ -201,7 +147,7 @@
         }
         
         .nav-links a:hover {
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #25D366;
         }
         
         .menu-toggle {
@@ -219,13 +165,13 @@
         
         /* SECCIÓN HERO */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('llaves_redo.webp');
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('fondo_ejemplo.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             text-align: center;
             padding: 160px 0 100px;
-            margin-top: 80px; /* Ajustado para la altura del header */
+            margin-top: 70px;
         }
         
         .hero h1 {
@@ -282,7 +228,7 @@
         
         .service-icon {
             font-size: 2.5rem;
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #25D366;
             margin-bottom: 20px;
         }
         
@@ -307,8 +253,7 @@
             flex: 1;
         }
         
-        .about-image { 
-            height: 700px;
+        .about-image {
             flex: 1;
             border-radius: 8px;
             overflow: hidden;
@@ -317,6 +262,7 @@
         
         .about-image img {
             width: 100%;
+            height: auto;
             display: block;
         }
         
@@ -402,7 +348,7 @@
             justify-content: center;
             margin-right: 15px;
             font-size: 1.5rem;
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #25D366;
             overflow: hidden;
             flex-shrink: 0;
         }
@@ -479,7 +425,7 @@
         }
         
         .scroll-indicator i {
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #25D366;
             font-size: 0.8rem;
             margin-bottom: 2px;
         }
@@ -529,12 +475,12 @@
             transform: translateY(-50%) scale(1.05);
         }
         
-        /* CAMBIO IMPORTANTE: Solo naranja cuando se presiona */
+        /* CAMBIO IMPORTANTE: Solo verde cuando se presiona */
         .carousel-btn:active {
-            background-color: #e17200; /* Cambiado a la gama naranja */
+            background-color: #25D366;
             color: white;
             transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 5px 20px rgba(225, 114, 0, 0.3); /* Cambiado a la gama naranja */
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
         }
         
         .carousel-btn.prev {
@@ -563,7 +509,7 @@
         }
         
         .indicator.active {
-            background-color: #e17200; /* Cambiado a la gama naranja */
+            background-color: #25D366;
             transform: scale(1.3);
         }
         
@@ -652,7 +598,7 @@
             justify-content: center;
             margin-right: 15px;
             font-size: 1rem;
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #25D366;
         }
         
         /* SECCIÓN DE CONTACTO */
@@ -680,15 +626,14 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background-color: #fbf2e9;
+            background-color: #f1f8e9;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin-right: 15px;
             font-size: 1.2rem;
-            color: #e17200;
-            flex-shrink: 0;
+            color: #25D366;
         }
         
         .contact-form {
@@ -749,7 +694,7 @@
             bottom: 0;
             width: 40px;
             height: 3px;
-            background-color: #e17200; /* Cambiado a la gama naranja */
+            background-color: #25D366;
         }
         
         .footer-links {
@@ -761,7 +706,7 @@
         }
         
         .footer-links a:hover {
-            color: #e17200; /* Cambiado a la gama naranja */
+            color: #25D366;
         }
         
         .copyright {
@@ -905,25 +850,7 @@
         
         @media (max-width: 768px) {
             .header-container {
-                padding: 10px 15px; /* Menor padding en móvil */
-            }
-            
-            /* Reducir altura del header en móvil */
-            header {
-                height: 70px;
-            }
-            
-            .logo {
-                gap: 10px;
-                max-width: 300px; /* Ancho máximo reducido en móvil */
-            }
-            
-            .logo-image {
-                height: 85%; /* Un poco más pequeña en móvil */
-            }
-            
-            .logo-name-image {
-                height: 65%; /* Un poco más pequeña en móvil */
+                padding: 15px 20px;
             }
             
             .nav-links {
@@ -968,13 +895,12 @@
                 width: 100%;
             }
             
-            .hero {
-                padding: 140px 0 80px;
-                margin-top: 70px; /* Ajustado para la nueva altura del header en móvil */
-            }
-            
             .hero h1 {
                 font-size: 2.2rem;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
             }
             
             .map-container {
@@ -1055,19 +981,6 @@
         }
         
         @media (max-width: 480px) {
-            /* Reducir aún más la altura del header en pantallas pequeñas */
-            header {
-                height: 60px;
-            }
-            
-            .header-container {
-                padding: 8px 12px;
-            }
-            
-            .hero {
-                margin-top: 60px; /* Ajustado para la nueva altura del header */
-            }
-            
             .hero h1 {
                 font-size: 1.8rem;
             }
@@ -1085,18 +998,11 @@
             }
             
             .logo {
-                gap: 8px;
-                max-width: 250px;
+                font-size: 1.5rem;
             }
             
-            .logo-image {
-                height: 80%;
-                min-height: 35px;
-            }
-            
-            .logo-name-image {
-                height: 60%;
-                min-height: 25px;
+            .logo-icon {
+                font-size: 1.7rem;
             }
             
             /* BOTÓN DE EMERGENCIA - AJUSTES PARA PANTALLAS PEQUEÑAS */
@@ -1114,25 +1020,6 @@
                 height: 55px;
                 font-size: 1.5rem;
             }
-            .contact-item {
-                align-items: flex-start; /* Alinear al inicio para mejor distribución */
-            }
-    
-            .contact-icon {
-                width: 40px; /* Reducir ligeramente el tamaño en móviles */
-                height: 40px;
-                font-size: 1rem;
-                flex-shrink: 0; /* Asegurar que no se encoja */
-                margin-top: 2px; /* Pequeño ajuste de alineación */
-            }
-    
-            /* Ajustes similares para location-icon */
-            .location-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 0.9rem;
-                flex-shrink: 0; /* También para location-icon si tiene el mismo problema */
-            }
             
             /* Asegurar suficiente espacio entre botones */
             @media (max-height: 600px) {
@@ -1143,13 +1030,6 @@
                     bottom: 15px;
                 }
             }
-            
-            /* Opcional: ocultar el nombre en pantallas muy pequeñas si no cabe */
-            /*
-            .logo-name-image {
-                display: none;
-            }
-            */
             
             /* Ajustes del carrusel para pantallas pequeñas */
             .review-card {
@@ -1206,15 +1086,12 @@
     </style>
 </head>
 <body>
-    <!-- HEADER MODIFICADO CON DOS IMÁGENES PNG -->
+    <!-- HEADER -->
     <header>
         <div class="container header-container">
             <div class="logo">
-                <!-- Reemplaza "logo.png" con la ruta de tu primera imagen PNG (logo/icono) -->
-                <img src="isotipo_redo.png" alt="Logo de Cerrajería Redó" class="logo-image" itemprop="logo">
-                
-                <!-- Reemplaza "nombre-empresa.png" con la ruta de tu segunda imagen PNG (nombre) -->
-                <img src="logotipo_redo.png" alt="Cerrajería Redó" class="logo-name-image">
+                <span class="logo-icon">🔧</span>
+                <span>TU NOMBRE</span>
             </div>
             
             <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación">
@@ -1228,25 +1105,23 @@
                     <li><a href="#nosotros">Nosotros</a></li>
                     <li><a href="#reseñas">Reseñas</a></li>
                     <li><a href="#ubicacion">Ubicación y contacto</a></li>
+                    <!--<li><a href="#contacto">Contacto</a></li>-->
                 </ul>
             </nav>
         </div>
-        <meta itemprop="name" content="Cerrajería Redó">
-        <meta itemprop="telephone" content="+5493413032627">
-        <meta itemprop="address" content="Mitre 909, Rosario, Santa Fe, Argentina">
     </header>
 
-    <!-- BOTÓN DE EMERGENCIA -->
-    <a href="#emergencyModal" class="btn btn-emergency emergency-button" id="emergencyBtn" aria-label="Servicio de emergencias de cerrajería Rosario">
+    <!-- BOTÓN DE EMERGENCIA
+    <a href="#emergencyModal" class="btn btn-emergency emergency-button" id="emergencyBtn">
         <i class="fas fa-phone-alt"></i> URGENCIAS
-    </a>
+    </a>-->
 
     <!-- SECCIÓN HERO (INICIO) -->
     <section class="hero" id="inicio">
         <div class="container">
-            <h1>CERRAJERÍA REDÓ</h1>
-            <p>Desde 1944 en la ciudad de Rosario. Realizamos todo tipo de trabajos de cerrajería, copia de llaves a domicilio y atención de urgencias.</p>
-            <a href="https://wa.me/5493413032627" class="btn btn-whatsapp" target="_blank" aria-label="Contactar a Cerrajería Redó por WhatsApp">
+            <h1>Tu servicio</h1>
+            <p>Descripción de tu servicio. Las imágenes, colores y contenido de los textos de la página son personalizables</p>
+            <a href="#contacto" class="btn btn-whatsapp" target="_blank">
             <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
             </a>
         </div>
@@ -1256,71 +1131,42 @@
     <section class="services" id="servicios">
         <div class="container">
             <div class="section-title">
-                <h2>Nuestros servicios</h2>
-                <p>Ofrecemos soluciones de cerrajería rápidas y efectivas para hogares y consorcios.</p>
+                <h2>Tus servicios</h2>
+                <p>Ofrecemos soluciones rápidas y efectivas en diferentes áreas.</p>
             </div>
             
-            <div class="services-grid">                
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Plomería de Emergencia</h3>
+                    <p>Atendemos fugas, obstrucciones y problemas con tuberías de inmediato, las 24 horas del día.</p>
+                </div>
                 
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Urgencias Eléctricas</h3>
+                    <p>Solucionamos cortocircuitos, fallas eléctricas y problemas de instalación de manera inmediata.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Gasista Matriculado</h3>
+                    <p>Revisiones urgentes de instalaciones de gas, detección de fugas y reparaciones inmediatas.</p>
+                </div>
+                
+                <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-key"></i>
                     </div>
-                    <h3 itemprop="name">Cerrajería Express</h3>
-                    <p itemprop="description">Copia de llaves en el acto.</p>
-                    <meta itemprop="serviceType" content="Copia de llaves">
+                    <h3>Cerrajería Express</h3>
+                    <p>Apertura de puertas, cambio de cerraduras y sistemas de seguridad disponibles 24/7.</p>
                 </div>
-                
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
-                    <div class="service-icon">
-                        <i class="fas fa-screwdriver-wrench"></i>
-                    </div>
-                    <h3 itemprop="name">Service a domicilio</h3>
-                    <p itemprop="description">Colocación de cerraduras, cambio de combinación y service de puertas blindadas.</p>
-                    <meta itemprop="serviceType" content="Service a domicilio">
-                </div>
-                              
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
-                    <div class="service-icon">
-                        <i class="fas fa-shield"></i>
-                    </div>
-                    <h3 itemprop="name">Cerraduras inteligentes</h3>
-                    <p itemprop="description">Colocación de cerraduras inteligentes.</p>
-                    <meta itemprop="serviceType" content="Cerraduras inteligentes">
-                </div>
-                
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
-                    <div class="service-icon">
-                        <i class="fas fa-vault"></i>
-                    </div>
-                    <h3 itemprop="name">Cajas de Seguridad - Especialistas</h3>
-                    <p itemprop="description">Servicio especializado en <strong>cajas fuertes</strong>: aperturas, cambio de combinación, copias de llaves, búsqueda de clave numérica y discos con retardo.</p>
-                    <meta itemprop="serviceType" content="Caja fuerte">
-                </div>
-                                                               
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <h3 itemprop="name">Cerrajería para Consorcios</h3>
-                    <p itemprop="description">Servicio integral de cerrajería para consorcios y edificios en Rosario.</p>
-                </div>
-                                        
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
-                    <div class="service-icon">
-                        <i class="fas fa-toolbox"></i>
-                    </div>
-                    <h3>Urgencias</h3>
-                    <p>Trabajos de urgencia a domicilio.</p>
-                </div>
-                
-                <div class="service-card" itemscope itemtype="https://schema.org/Service">
-                    <div class="service-icon">
-                        <i class="fas fa-toolbox"></i>
-                    </div>
-                    <h3 itemprop="name">Urgencias</h3>
-                    <p itemprop="description">Apertura de puertas y solución de emergencias de cerrajería a domicilio en Rosario.</p>
-                </div>  
             </div>
         </div>
     </section>
@@ -1330,21 +1176,20 @@
         <div class="container">
             <div class="section-title">
                 <h2>Sobre la empresa</h2>
-                <!-- <p>Conoce más sobre la empresa...</p>
-                -->
+                <p>Conoce más sobre la empresa...</p>
             </div>
             
             <div class="about-container">
                 <div class="about-content">
-                    <h3>Más de 80 años de experiencia.</h3>
-                    <p>Desde 1944 brindamos soluciones de cerrajería en la ciudad de Rosario.</p>
-                    <p>Trabajamos con hogares, locales y consorcios. Somos especialistas en cajas fuertes.</p>
-                    <p>Contamos con la experiencia para desarrollar una amplia gama de servicios de cerrajería.</p>
-                    <a href="tel:+5493414481011" class="btn btn-secondary">Contactanos</a>
+                    <h3>Profesional Confiable.</h3>
+                    <p>Descripción de tu experiencia...</p>
+                    <p>Descripción de tu servicio...</p>
+                    <p>Por qué elegirte...</p>
+                    <a href="#contacto" class="btn btn-secondary">Contáctanos</a>
                 </div>
                 
                 <div class="about-image">
-                    <img src="maquinas_redo.webp" alt="Profesional trabajando">
+                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Profesional trabajando">
                 </div>
             </div>
         </div>
@@ -1355,20 +1200,20 @@
         <div class="container">
             <div class="section-title">
                 <h2>Opiniones de nuestros clientes</h2>
-                <p>¿Qué dicen quienes ya confiaron en nuestros servicios?</p>
+                <p>Descubre lo que dicen quienes ya confiaron en nuestros servicios.</p>
             </div>
             
             <!-- Puntaje general -->
             <div class="overall-rating">
-                <div class="rating-score">4.5/5</div>
+                <div class="rating-score">4.9/5</div>
                 <div class="rating-stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
+                    <i class="fas fa-star"></i>
                 </div>
-                <div class="rating-text">Basado en 39 opiniones</div>
+                <div class="rating-text">Basado en 127 reseñas</div>
             </div>
             
             <div class="reviews-carousel-container" id="reviewsCarouselContainer">
@@ -1386,7 +1231,7 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="review-info">
-                                <h4>Noelia Gonzalez</h4>
+                                <h4>María González</h4>
                                 <p>Cliente desde 2022</p>
                             </div>
                         </div>
@@ -1399,13 +1244,13 @@
                         </div>
                         <div class="review-text-container">
                             <p class="review-text">
-                                "Hace años que hago mis llaves ahí. Siempre la atención y los precios fueron excelentes. Hace poco tuve una urgencia, ya que trabe una cerradura y me lo solucionaron en tiempo y forma, incluso a menos valor del que esperaba. Recomiendo sin dudas."
+                                "Increíble servicio. Tuve una fuga de agua a medianoche y en menos de 30 minutos tenían a un fontanero en mi casa. Solucionaron el problema rápidamente y con total profesionalismo. El técnico fue muy amable y me explicó todo lo que hizo. Definitivamente los recomendaré a todos mis conocidos."
                             </p>
                             <div class="scroll-indicator">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="review-date">Hace 4 años</div>
+                        <div class="review-date">15 de marzo, 2023</div>
                     </div>
                     
                     <!-- Reseña 2 -->
@@ -1415,8 +1260,8 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="review-info">
-                                <h4>Adriana Cecilia Mosca Duga</h4>
-                                <p>Cliente desde 2024</p>
+                                <h4>Carlos Rodríguez</h4>
+                                <p>Cliente desde 2021</p>
                             </div>
                         </div>
                         <div class="review-stars">
@@ -1428,13 +1273,13 @@
                         </div>
                         <div class="review-text-container">
                             <p class="review-text">
-                                "Muy buena atención, precios y profesionalismo. Dan un horario y lo cumplen. Trabajan con dedicación y cumplen. Los precios correctos y accesibles. Vivo a casi 15 cuadras, pero los prefiero a los de mi zona. Recomendables."
+                                "El domingo por la tarde se me rompió la cerradura y no podía entrar a mi casa. Llamé a ServiExpress y en 20 minutos estaba aquí un cerrajero. Me solucionó el problema al instante y con un precio justo. Excelente atención y muy profesionales. Volveré a llamarlos si necesito ayuda."
                             </p>
                             <div class="scroll-indicator">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="review-date">Hace 2 años</div>
+                        <div class="review-date">2 de abril, 2023</div>
                     </div>
                     
                     <!-- Reseña 3 -->
@@ -1444,8 +1289,8 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="review-info">
-                                <h4>Ana Fernández Lamothe</h4>
-                                <p>Cliente desde 2025</p>
+                                <h4>Ana Martínez</h4>
+                                <p>Cliente desde 2023</p>
                             </div>
                         </div>
                         <div class="review-stars">
@@ -1453,17 +1298,17 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
                         </div>
                         <div class="review-text-container">
                             <p class="review-text">
-                                "Excelente cerrajeria. Los trabajadores tienen mucho conocimiento y me pudieron ayudar con un candado de principios de siglo 20 qué necesita la llave."
+                                "Tuve un problema eléctrico en mi negocio que me dejó sin luz. A pesar de ser festivo, atendieron mi llamada y enviaron a un electricista calificado. Solucionó el problema en una hora y me explicó todo claramente. Muy profesionales y eficientes. El precio fue razonable para ser un día festivo."
                             </p>
                             <div class="scroll-indicator">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="review-date">Hace un año</div>
+                        <div class="review-date">10 de mayo, 2023</div>
                     </div>
                     
                     <!-- Reseña 4 -->
@@ -1473,8 +1318,8 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="review-info">
-                                <h4>Héctor Eduardo Ríos</h4>
-                                <p>Cliente desde 2024</p>
+                                <h4>Javier López</h4>
+                                <p>Cliente desde 2020</p>
                             </div>
                         </div>
                         <div class="review-stars">
@@ -1486,13 +1331,13 @@
                         </div>
                         <div class="review-text-container">
                             <p class="review-text">
-                                "Cerrajeros de varias generaciones."
+                                "Llevo años confiando en ellos para todas las emergencias de mi hogar. Lo que más valoro es la transparencia en los precios y la rapidez de respuesta. Nunca me han fallado, ya sea para fontanería, electricidad o gas. Los técnicos siempre son puntuales y explican claramente el trabajo realizado."
                             </p>
                             <div class="scroll-indicator">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="review-date">Hace 2 años</div>
+                        <div class="review-date">22 de junio, 2023</div>
                     </div>
                     
                     <!-- Reseña 5 -->
@@ -1502,8 +1347,8 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="review-info">
-                                <h4>Mauri Garcia</h4>
-                                <p>Cliente desde 2023</p>
+                                <h4>Laura Sánchez</h4>
+                                <p>Cliente desde 2022</p>
                             </div>
                         </div>
                         <div class="review-stars">
@@ -1515,13 +1360,13 @@
                         </div>
                         <div class="review-text-container">
                             <p class="review-text">
-                                "Me solucionaron un problema con una cerradura rapidísimo!"
+                                "Detecté olor a gas en mi cocina y entré en pánico. Llamé a estos profesionales y me calmó el operador mientras enviaban a un técnico. Llegó en 15 minutos, revisó toda la instalación y solucionó una pequeña fuga. Me sentí segura en todo momento y el técnico fue muy respetuoso. Recomiendo totalmente su servicio."
                             </p>
                             <div class="scroll-indicator">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="review-date">Hace 3 años</div>
+                        <div class="review-date">5 de julio, 2023</div>
                     </div>
                     
                     <!-- Reseña 6 -->
@@ -1531,8 +1376,8 @@
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="review-info">
-                                <h4>Gustavo Lamanuzzi</h4>
-                                <p>Cliente desde 2022</p>
+                                <h4>Roberto Fernández</h4>
+                                <p>Cliente desde 2021</p>
                             </div>
                         </div>
                         <div class="review-stars">
@@ -1540,17 +1385,17 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <i class="fas fa-star-alt"></i>
+                            <i class="fas fa-star"></i>
                         </div>
                         <div class="review-text-container">
                             <p class="review-text">
-                                "Excelente atención en tiempo y forma muy prolijo la persona que fue a solucionar el problema."
+                                "Excelente atención en una emergencia de fontanería. El técnico fue muy profesional, explicó el problema y la solución claramente. Los recomiendo sin dudar. El precio fue justo y el trabajo quedó perfecto. Ya los he recomendado a varios amigos y todos han quedado igual de satisfechos."
                             </p>
                             <div class="scroll-indicator">
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
-                        <div class="review-date">Hace 4 años</div>
+                        <div class="review-date">18 de agosto, 2023</div>
                     </div>
                 </div>
                 
@@ -1577,16 +1422,20 @@
             
             <div class="location-container">
                 <div class="map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5245.002710340066!2d-60.64014606508334!3d-32.947669007853435!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ab19e0f8ea3f%3A0x2a3742ff070c124e!2sCerrajeria%20Redo!5e1!3m2!1ses!2sar!4v1768848418544!5m2!1ses!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.177858804427!2d-74.00597092388903!3d40.71274363891483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a316fc04223%3A0xb5c3e0a2b25bc283!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1689876307198!5m2!1sen!2s" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
                 
                 <div class="location-info">
                     <h3>Encontranos fácilmente</h3>
                     
                     <div class="location-details">
-                        <p>Estamos ubicados en el centro.</p>
-                        <!--<p>Descripción de tu ubicación.</p>
-                        -->
+                        <p>Descripción de tu ubicación.</p>
+                        <p>Descripción de tu ubicación.</p>
                     </div>
 
                     <!--<div class="location-item">
@@ -1599,14 +1448,24 @@
                         </div>
                     </div>
                     -->
-                                     
+                   
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
                             <h4>Dirección</h4>
-                            <p>Mitre 909, Rosario, Santa Fe</p>
+                            <p>Calle Principal 123, Ciudad, País</p>
                         </div>
                     </div>
                     
@@ -1616,31 +1475,13 @@
                         </div>
                         <div>
                             <h4>Horario de Atención</h4>
-                            <p>Lunes a viernes de 9:00 a 17:00, sábados hasta las 12:00</p>
+                            <p>24 horas, 7 días a la semana</p>
                         </div>
                     </div>
                     
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Teléfono</h4>
-                            <p>(0341) 448-1011</p>
-                        </div>
-                    </div>                    
-                                       
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Correo electrónico</h4>
-                            <p>redo1944@gmail.com</p>
-                        </div>
-                    </div>
-                   
-                    <a href="https://maps.google.com/?q=Mitre+909,+Rosario,+Argentina" class="btn btn-primary" target="_blank">
+                    
+                    
+                    <a href="https://maps.google.com/?q=Calle+Principal+123,+Ciudad,+País" class="btn btn-primary" target="_blank">
                         <i class="fas fa-directions"></i> Cómo llegar
                     </a>
                 </div>
@@ -1665,7 +1506,7 @@
                             <i class="fas fa-phone-alt"></i>
                         </div>
                         <div>
-                            <h4>Teléfono de Emergencia</h4>
+                            <h4>Teléfono</h4>
                             <p>+1 (555) 123-4567</p>
                         </div>
                     </div>
@@ -1676,7 +1517,7 @@
                         </div>
                         <div>
                             <h4>Correo Electrónico</h4>
-                            <p>emergencias@serviexpress.com</p>
+                            <p>contacto@serviexpress.com</p>
                         </div>
                     </div>
                     
@@ -1744,21 +1585,10 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
-                    <h3>CERRAJERÍA REDÓ ROSARIO</h3>
-                    <p>Servicios profesionales de <strong>cerrajería en Rosario</strong>.</p>
-                    
-                    <!-- Enlaces a redes sociales para SEO -->
-                    <div style="margin-top: 20px; display: flex; gap: 10px;">
-                        <a href="https://www.instagram.com/cerrajeria_redo/" target="_blank" aria-label="Instagram de Cerrajería Redó" style="color: #e4405f; font-size: 1.5rem;">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://www.facebook.com/p/Cerrajeria-REDO-100063660264800/" target="_blank" aria-label="Facebook de Cerrajería Redó" style="color: #1877f2; font-size: 1.5rem;">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                    </div>
-                    
+                    <h3>TU NOMBRE</h3>
+                    <p>Servicios profesionales.</p>
                     <div style="margin-top: 20px;">
-                        <a href="https://wa.me/5493413032627" class="btn btn-whatsapp" style="padding: 8px 15px; font-size: 0.9rem;">
+                        <a href="#" class="btn btn-primary" style="padding: 8px 15px; font-size: 0.9rem;">
                             <i class="fab fa-whatsapp"></i> WhatsApp
                         </a>
                     </div>
@@ -1772,27 +1602,27 @@
                         <li><a href="#nosotros">Nosotros</a></li>
                         <li><a href="#reseñas">Reseñas</a></li>
                         <li><a href="#ubicacion">Ubicación y contacto</a></li>
+                        <!-- <li><a href="#contacto">Contacto</a></li>
+                        -->
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Servicios</h3>
                     <ul class="footer-links">
-                        <li><a href="#servicios">Cerrajería express</a></li>
-                        <li><a href="#servicios">Service a domicilio</a></li>
-                        <li><a href="#servicios">Cerraduras inteligentes</a></li>
-                        <li><a href="#servicios">Cajas de seguridad</a></li>
-                        <li><a href="#servicios">Consorcios</a></li>
-                        <li><a href="#servicios">Urgencias</a></li>
+                        <li><a href="#servicios">Fontanería de Emergencia</a></li>
+                        <li><a href="#servicios">Electricidad Urgente</a></li>
+                        <li><a href="#servicios">Gasistas de Emergencia</a></li>
+                        <li><a href="#servicios">Cerrajería Express</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Contacto</h3>
                     <ul class="footer-links">
-                        <li><i class="fas fa-phone-alt"></i> (0341) 448-1011</li>
-                        <li><i class="fas fa-envelope"></i> redo1944@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Mitre 909, Rosario, Santa Fe</li>
+                        <li><i class="fas fa-phone-alt"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a9cac6c7ddc8caddc6e9daccdbdfc0ccd1d9dbccdada87cac6c4">[email&#160;protected]</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Ciudad</li>
                     </ul>
                 </div>
             </div>
@@ -1804,7 +1634,7 @@
     </footer>
 
     <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/5493413032627" class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/15551234567?text=Hola,%20necesito%20ayuda%20con%20una%20emergencia" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -1813,14 +1643,14 @@
         <div class="modal-content">
             <span class="modal-close" id="modalClose">&times;</span>
             <h2>¿Necesitas ayuda de inmediato?</h2>
-            <p>Para emergencias, contactanos directamente.</p>
+            <p>Para emergencias, contacta directamente con nuestro equipo especializado.</p>
             
             <div style="margin: 30px 0;">
-                <a href="tel:+5493413032627" class="btn btn-emergency" style="margin-bottom: 15px; display: block;">
-                    <i class="fas fa-phone-alt"></i> LLAMAR AHORA: (0341) 153-032627
+                <a href="tel:+15551234567" class="btn btn-emergency" style="margin-bottom: 15px; display: block;">
+                    <i class="fas fa-phone-alt"></i> LLAMAR AHORA: +1 (555) 123-4567
                 </a>
                 
-                <a href="https://wa.me/5493413032627" class="btn btn-whatsapp" style="display: block;" target="_blank">
+                <a href="https://wa.me/15551234567?text=EMERGENCIA:%20Necesito%20ayuda%20inmediata" class="btn btn-primary" style="display: block;" target="_blank">
                     <i class="fab fa-whatsapp"></i> WhatsApp de EMERGENCIA
                 </a>
             </div>
@@ -1847,7 +1677,7 @@
         </div>
     </div>
     
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // FUNCIONALIDAD DEL MENÚ HAMBURGUESA
     document.getElementById('menuToggle').addEventListener('click', function() {
         document.getElementById('navLinks').classList.toggle('active');
@@ -2259,7 +2089,7 @@
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 80, /* Ajustado para la nueva altura del header */
+                    top: targetElement.offsetTop - 70,
                     behavior: 'smooth'
                 });
             }
